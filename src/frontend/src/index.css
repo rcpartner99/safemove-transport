@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: Space Grotesk;
+    --font-body: DM Sans;
+    --font-mono: monospace;
+    --radius: 0.5rem;
+
+    --background: 0.13 0.035 255;
+    --foreground: 0.96 0.005 255;
+    --card: 0.18 0.04 255;
+    --card-foreground: 0.96 0.005 255;
+    --popover: 0.18 0.04 255;
+    --popover-foreground: 0.96 0.005 255;
+
+    --primary: 0.75 0.17 55;
+    --primary-foreground: 0.13 0.035 255;
+
+    --secondary: 0.22 0.04 255;
+    --secondary-foreground: 0.88 0.005 255;
+    --muted: 0.22 0.04 255;
+    --muted-foreground: 0.58 0.015 255;
+
+    --accent: 0.75 0.17 55;
+    --accent-foreground: 0.13 0.035 255;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.96 0.005 25;
+
+    --border: 0.28 0.04 255;
+    --input: 0.28 0.04 255;
+    --ring: 0.75 0.17 55;
+
+    --chart-1: 0.75 0.17 55;
+    --chart-2: 0.6 0.12 185;
+    --chart-3: 0.4 0.07 227;
+    --chart-4: 0.83 0.19 84;
+    --chart-5: 0.77 0.19 70;
+
+    --sidebar: 0.16 0.038 255;
+    --sidebar-foreground: 0.96 0.005 255;
+    --sidebar-primary: 0.75 0.17 55;
+    --sidebar-primary-foreground: 0.13 0.035 255;
+    --sidebar-accent: 0.22 0.04 255;
+    --sidebar-accent-foreground: 0.88 0.005 255;
+    --sidebar-border: 0.28 0.04 255;
+    --sidebar-ring: 0.75 0.17 55;
+  }
+
+  .dark {
+    --background: 0.13 0.035 255;
+    --foreground: 0.96 0.005 255;
+    --card: 0.18 0.04 255;
+    --card-foreground: 0.96 0.005 255;
+    --popover: 0.18 0.04 255;
+    --popover-foreground: 0.96 0.005 255;
+
+    --primary: 0.75 0.17 55;
+    --primary-foreground: 0.13 0.035 255;
+
+    --secondary: 0.22 0.04 255;
+    --secondary-foreground: 0.88 0.005 255;
+    --muted: 0.22 0.04 255;
+    --muted-foreground: 0.58 0.015 255;
+
+    --accent: 0.75 0.17 55;
+    --accent-foreground: 0.13 0.035 255;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.13 0.035 255;
+
+    --border: 0.28 0.04 255;
+    --input: 0.28 0.04 255;
+    --ring: 0.75 0.17 55;
+
+    --chart-1: 0.49 0.24 264;
+    --chart-2: 0.7 0.17 162;
+    --chart-3: 0.77 0.19 70;
+    --chart-4: 0.63 0.27 304;
+    --chart-5: 0.65 0.25 16;
+
+    --sidebar: 0.18 0 0;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.8 0 0;
+    --sidebar-primary-foreground: 0.145 0 0;
+    --sidebar-accent: 0.22 0 0;
+    --sidebar-accent-foreground: 0.85 0 0;
+    --sidebar-border: 0.28 0 0;
+    --sidebar-ring: 0.8 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .shadow-subtle {
+    box-shadow: 0 1px 3px 0 oklch(0 0 0 / 0.2), 0 1px 2px -1px
+      oklch(0 0 0 / 0.15);
+  }
+  .shadow-elevated {
+    box-shadow: 0 10px 25px -5px oklch(0 0 0 / 0.4), 0 4px 10px -3px
+      oklch(0 0 0 / 0.3);
+  }
+  .shadow-glow-accent {
+    box-shadow: 0 0 20px oklch(0.75 0.17 55 / 0.3);
+  }
+  .text-gradient-accent {
+    background: linear-gradient(
+      135deg,
+      oklch(0.75 0.17 55),
+      oklch(0.85 0.15 65)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-hero-overlay {
+    background: linear-gradient(
+      135deg,
+      oklch(0.09 0.04 255 / 0.92) 0%,
+      oklch(0.13 0.035 255 / 0.75) 60%,
+      oklch(0.13 0.035 255 / 0.4) 100%
+    );
+  }
+  .border-accent-glow {
+    border-color: oklch(0.75 0.17 55 / 0.5);
+    box-shadow: 0 0 8px oklch(0.75 0.17 55 / 0.2);
+  }
+  .font-display {
+    font-family: var(--font-display), sans-serif;
+  }
+  .font-body {
+    font-family: var(--font-body), sans-serif;
+  }
+}
